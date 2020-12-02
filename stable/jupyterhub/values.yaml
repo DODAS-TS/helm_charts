@@ -12,3 +12,5 @@ hub:
 
 s3:
     enabled: false
+    endpoint: https://minio.cloud.infn.it/minio
+    bucket: mybucket
