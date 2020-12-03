@@ -11,6 +11,6 @@ hub:
     image: dodasts/jupyter-hub:v3.0.0
 
 s3:
-    enabled: false
+    enabled: true
     endpoint: https://minio.cloud.infn.it/minio
     bucket: mybucket
