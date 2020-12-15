@@ -27,7 +27,7 @@ spec:
               value: "{{ .Values.iam.endpoint }}"
             - name: S3_ENDPOINT
               value: "{{ .Values.s3.endpoint }}"
-            - name: S3_BUCKETS
+            - name: S3_BUCKET
               value: "{{ .Values.s3.bucket }}"
           image: "{{ .Values.hub.image }}"
           ports:
