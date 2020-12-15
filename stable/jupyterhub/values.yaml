@@ -12,4 +12,4 @@ hub:
 
 s3:
     endpoint: https://minio.cloud.infn.it/minio
-    bucket: mybucket
+    buckets: mybucket
