@@ -3,13 +3,13 @@ entries:
   JHUBaaS:
   - apiVersion: v1
     appVersion: 1.3.0
-    created: "2021-04-22T08:35:27.447426722Z"
+    created: "2021-04-22T08:53:56.370482969Z"
     dependencies:
     - name: jupyterhub
       repository: https://jupyterhub.github.io/helm-chart/
       version: 0.11.1
     description: JHUBaaS Hub umbrella chart
-    digest: 6daf3a2a146e9ba6f1023c949fe1bb43dc18190dff5a9550e16b40c9f5a2d35d
+    digest: a304db7bd9e39ceca4650430b9e79a84f2836c799b5f5691a424bb9bb1cdf7c6
     icon: https://jupyter.org/assets/hublogo.svg
     keywords:
     - jupyterhub
@@ -23,9 +23,9 @@ entries:
   cachingondemand:
   - apiVersion: v1
     appVersion: "4.11"
-    created: "2021-04-22T08:35:27.451121016Z"
+    created: "2021-04-22T08:53:56.374285514Z"
     description: A Helm chart for the deployment of a XCache cluster
-    digest: eafc81548f0fc61ab27db533cab7d409b99a424ed1c7c9cd772e9ba491719718
+    digest: ca97d7f3d10abcecd0522b6ff7e331b90527f521cb473ec7b90c6f349ac5d065
     home: https://dodas-ts.github.io/helm_charts/stable/cachingondemand/
     icon: https://xrootd.slac.stanford.edu/images/xrootd-logo.png
     maintainers:
@@ -40,9 +40,9 @@ entries:
   htcondor:
   - apiVersion: v1
     appVersion: 8.4.3
-    created: "2021-04-22T08:35:27.466675711Z"
+    created: "2021-04-22T08:53:56.388178109Z"
     description: A Helm chart for HTCondor on Kubernetes
-    digest: 250a82e9309bb26f7cb3e3ab1c2e55ac04b48b5228b7ff781927354c847d8bb8
+    digest: 36e19797f63091b984bed858149f94366ee9d725f211b421680cb2bea4404d62
     home: https://dodas-ts.github.io/helm_charts/stable/htcondor/
     icon: https://research.cs.wisc.edu/htcondor/images/HTCondor_wiki_logo_small.png
     maintainers:
@@ -57,9 +57,9 @@ entries:
   jupyterhub:
   - apiVersion: v1
     appVersion: "1"
-    created: "2021-04-22T08:35:27.467250826Z"
+    created: "2021-04-22T08:53:56.38864814Z"
     description: A Helm chart for the deployment of multi-user JupyterHUB
-    digest: b9bdd2df949171013ed18a1b71c3608d17807c079872874ef51e33b1dd4709a8
+    digest: 6214646a115c39e50f448961fd0b480651459af82c2576a9583092985ef0b3ad
     home: https://dodas-ts.github.io/helm_charts/stable/jupyterhub/
     icon: https://xrootd.slac.stanford.edu/images/jupyterhub.png
     maintainers:
@@ -74,9 +74,9 @@ entries:
   minio:
   - apiVersion: v1
     appVersion: "1"
-    created: "2021-04-22T08:35:27.467844741Z"
+    created: "2021-04-22T08:53:56.389175574Z"
     description: A Helm chart for the deployment of multi-oidc-user MINIO+OPA
-    digest: 02ff06f4093ae05638bca892fc7ac682a28a54eb984a37859dbf134138c67a76
+    digest: 5a9a8c2e028baf069e7c66d42e794c161e5e1555cae9d61bbcfcb8a66bf44440
     home: https://dodas-ts.github.io/helm_charts/stable/minio/
     icon: https://xrootd.slac.stanford.edu/images/minio.png
     maintainers:
@@ -91,9 +91,9 @@ entries:
   spark:
   - apiVersion: v1
     appVersion: 1.5.1
-    created: "2021-04-22T08:35:27.468468657Z"
+    created: "2021-04-22T08:53:56.389707408Z"
     description: Fast and general-purpose cluster computing system.
-    digest: 9d33332200f00512215d5bf0047cd893a5bbc30afd65804ac7ccecde4c692411
+    digest: 3a2b3d1fe275bb98667045bdec9e64eef7c0610c032ade25988183f9b4997d08
     home: http://spark.apache.org
     icon: http://spark.apache.org/images/spark-logo-trademark.png
     maintainers:
@@ -106,4 +106,4 @@ entries:
     urls:
     - https://DODAS-TS.github.io/helm_charts/spark-2.4.5.tgz
     version: 2.4.5
-generated: "2021-04-22T08:35:27.441717877Z"
+generated: "2021-04-22T08:53:56.363603825Z"
