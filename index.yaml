@@ -311,28 +311,6 @@ entries:
     urls:
     - https://DODAS-TS.github.io/helm_charts/Fermi-experiment-0.0.2.tgz
     version: 0.0.2
-  FermiLAT-experiment:
-  - annotations:
-      category: stable
-    apiVersion: v1
-    appVersion: 8.9.3
-    created: "2021-04-27T08:50:28.574358968Z"
-    dependencies:
-    - name: htcondor
-      repository: https://dodas-ts.github.io/helm_charts
-      version: 2.0.8
-    description: HTCondor pool for Fermi experiment
-    digest: b79371e4992620154873e4b81b9bb9cb2b3ef1fac65142828615b42dc4eb5dad
-    keywords:
-    - ams
-    - htcondor
-    maintainers:
-    - email: diego.ciangottini@pg.infn.it
-      name: dciangot
-    name: FermiLAT-experiment
-    urls:
-    - https://DODAS-TS.github.io/helm_charts/FermiLAT-experiment-0.0.1.tgz
-    version: 0.0.1
   JHUBaaS:
   - annotations:
       category: stable
