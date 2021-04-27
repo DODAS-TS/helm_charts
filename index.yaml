@@ -5,6 +5,28 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: 8.9.3
+    created: "2021-04-27T09:18:18.215883382Z"
+    dependencies:
+    - name: htcondor
+      repository: https://dodas-ts.github.io/helm_charts
+      version: 2.0.8
+    description: HTCondor pool for AMS experiment
+    digest: cb8f064c36bd89fed4a52cad1cda6fdcfc6b26885e31d94222f66c923c3f970e
+    icon: https://upload.wikimedia.org/wikipedia/commons/2/25/AMS-02_Logo.png
+    keywords:
+    - ams
+    - htcondor
+    maintainers:
+    - email: diego.ciangottini@pg.infn.it
+      name: dciangot
+    name: AMS-experiment
+    urls:
+    - https://DODAS-TS.github.io/helm_charts/AMS-experiment-0.0.2.tgz
+    version: 0.0.2
+  - annotations:
+      category: stable
+    apiVersion: v1
+    appVersion: 8.9.3
     created: "2021-04-27T09:00:23.439279344Z"
     dependencies:
     - name: htcondor
@@ -28,13 +50,13 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: 8.9.3
-    created: "2021-04-27T09:00:23.441438533Z"
+    created: "2021-04-27T09:18:18.218642984Z"
     dependencies:
     - name: htcondor
       repository: https://dodas-ts.github.io/helm_charts
       version: 2.0.8
     description: HTCondor startd's pool for CMS experiment
-    digest: 02e8f0af5167ae18d331b585f7be4e332af58880d0955988bd6d179b41c47826
+    digest: 12b1fb3b3a51e5a3634e9819912d608c063f50ee06aae4f2d069ad22544e6d63
     icon: https://laser-caltech.web.cern.ch/images/Logo/CMS%20logo.jpeg
     keywords:
     - cms
@@ -293,6 +315,28 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: 8.9.3
+    created: "2021-04-27T09:18:18.220941186Z"
+    dependencies:
+    - name: htcondor
+      repository: https://dodas-ts.github.io/helm_charts
+      version: 2.0.8
+    description: HTCondor pool for Fermi experiment
+    digest: fdc5e189e5b4244656d25fb975382e7d1b76e8da9549aa17369da9c56ae9d03a
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Fermi_Gamma-ray_Space_Telescope_logo.svg/1172px-Fermi_Gamma-ray_Space_Telescope_logo.svg.png
+    keywords:
+    - ams
+    - htcondor
+    maintainers:
+    - email: diego.ciangottini@pg.infn.it
+      name: dciangot
+    name: Fermi-experiment
+    urls:
+    - https://DODAS-TS.github.io/helm_charts/Fermi-experiment-0.0.3.tgz
+    version: 0.0.3
+  - annotations:
+      category: stable
+    apiVersion: v1
+    appVersion: 8.9.3
     created: "2021-04-27T09:00:23.444207219Z"
     dependencies:
     - name: htcondor
@@ -316,13 +360,13 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: 1.3.0
-    created: "2021-04-27T09:00:23.450144489Z"
+    created: "2021-04-27T09:18:18.225639189Z"
     dependencies:
     - name: jupyterhub
       repository: https://jupyterhub.github.io/helm-chart/
       version: 0.11.1
     description: JHUBaaS Hub umbrella chart
-    digest: 6d6f178521f94c5aec51ea9857db9d78ce19c35f0d362bdf9253d798454917af
+    digest: 2307d3d22567441ad0430c92039bb35eff059d069674070000da9c95d295e528
     icon: https://jupyter.org/assets/hublogo.svg
     keywords:
     - jupyterhub
@@ -433,9 +477,9 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: "4.11"
-    created: "2021-04-27T09:00:23.453178874Z"
+    created: "2021-04-27T09:18:18.229251391Z"
     description: A Helm chart for the deployment of a XCache cluster
-    digest: bfb2d025abbc8a0c33656ea1766b60dd4a18cb4e709d07fc1f1e3497fa42113c
+    digest: 69bbf5fdd8884990b794c48fb6210a4e89cb0a453dfe00bba162c75e4d691d70
     home: https://dodas-ts.github.io/helm_charts/stable/cachingondemand/
     icon: https://xrootd.slac.stanford.edu/images/xrootd-logo.png
     maintainers:
@@ -470,9 +514,9 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: 8.9.3
-    created: "2021-04-27T09:00:23.454292968Z"
+    created: "2021-04-27T09:18:18.230480892Z"
     description: A Helm chart for the deployment of HTCondor cluster
-    digest: e8362a1630a17f550b928f143b7eaa6a032eb7f8ee06375d852b82a2573e619b
+    digest: 6035a7d42a11299b4a4450070ea31c4fddc054cd54c6e295a3e952865aad717e
     home: https://dodas-ts.github.io/helm_charts/stable/htcondor/
     icon: https://research.cs.wisc.edu/htcondor/images/HTCondor_wiki_logo_small.png
     maintainers:
@@ -731,9 +775,9 @@ entries:
       category: test
     apiVersion: v1
     appVersion: "1"
-    created: "2021-04-27T09:00:23.454657566Z"
+    created: "2021-04-27T09:18:18.230843692Z"
     description: A Helm chart for the deployment of multi-user JupyterHUB
-    digest: 7a3343adfaf201b2464981504acff1c2e384b0a2f5413ce948a62177c9109667
+    digest: 5b4d7dd68f964f2745c8fff3b44198ac00a86e62512a2b4a3d483dad98d29c9b
     home: https://dodas-ts.github.io/helm_charts/stable/jupyterhub/
     icon: https://xrootd.slac.stanford.edu/images/jupyterhub.png
     maintainers:
@@ -750,9 +794,9 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: "1"
-    created: "2021-04-27T09:00:23.455047564Z"
+    created: "2021-04-27T09:18:18.231247993Z"
     description: A Helm chart for the deployment of multi-oidc-user MINIO+OPA
-    digest: e4637ea66ff56221fc913fb67d5faa619023df54b9455055f176273424c5392f
+    digest: 3bfd2a121c3eb8f08339d1c8e8ef8585dded333ad793b15b547a5bc026e56ec4
     home: https://dodas-ts.github.io/helm_charts/stable/minio/
     icon: https://min.io/resources/img/logo/MINIO_Bird.png
     maintainers:
@@ -787,9 +831,9 @@ entries:
       category: test
     apiVersion: v1
     appVersion: 1.5.1
-    created: "2021-04-27T09:00:23.455508762Z"
+    created: "2021-04-27T09:18:18.231740493Z"
     description: Fast and general-purpose cluster computing system.
-    digest: 11604ae8b6bb6f383ed442d9ff876b370a7aecafdb4885463fded6899d3dab80
+    digest: aa1abd97855d644d92fbbf71a1ffa344a9935f468b22e43a374f95f80079dee8
     home: http://spark.apache.org
     icon: http://spark.apache.org/images/spark-logo-trademark.png
     maintainers:
@@ -802,4 +846,4 @@ entries:
     urls:
     - https://DODAS-TS.github.io/helm_charts/spark-2.4.5.tgz
     version: 2.4.5
-generated: "2021-04-27T09:00:23.436756356Z"
+generated: "2021-04-27T09:18:18.21346798Z"
