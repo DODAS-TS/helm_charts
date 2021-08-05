@@ -5,13 +5,13 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: 8.9.9
-    created: "2021-08-04T15:45:01.297844989Z"
+    created: "2021-08-05T08:43:09.357921251Z"
     dependencies:
     - name: htcondor
       repository: https://dodas-ts.github.io/helm_charts
       version: 2.1.6
     description: HTCondor pool for AMS experiment
-    digest: 9ec927a9729b3f60eb8cfd219850e093692c48afd6c87bb68a579f15b3dedeba
+    digest: 91e0a537c024736a57fdbe499c6c3d3f93a08499f2b5475d366aa35e6302de97
     icon: https://upload.wikimedia.org/wikipedia/commons/2/25/AMS-02_Logo.png
     keywords:
     - ams
@@ -204,13 +204,13 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: 8.9.3
-    created: "2021-08-04T15:45:01.302171101Z"
+    created: "2021-08-05T08:43:09.361014674Z"
     dependencies:
     - name: htcondor
       repository: https://dodas-ts.github.io/helm_charts
       version: 2.1.6
     description: HTCondor startd's pool for CMS experiment
-    digest: b3d502baf6b12a00018680148b9823c7f6fa08e9319c4b0bdfa79daf7b9ea4ee
+    digest: 459b4d9b9299cb8c37bb0d16c77f90e92af2c00b69da379c7efd2a225319be2b
     icon: https://laser-caltech.web.cern.ch/images/Logo/CMS%20logo.jpeg
     keywords:
     - cms
@@ -623,13 +623,13 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: 8.9.9
-    created: "2021-08-04T15:45:01.307951617Z"
+    created: "2021-08-05T08:43:09.364902602Z"
     dependencies:
     - name: htcondor
       repository: https://dodas-ts.github.io/helm_charts
       version: 2.1.6
     description: HTCondor pool for Fermi experiment
-    digest: 1cc89ca308065c4177a6b39d8122b800ee8bcf1e985fe47006c9b725c5178460
+    digest: be6f95768e3cbe5cc4ca77ae594730ce635d93b9637960525e60961c4a49f3ee
     icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Fermi_Gamma-ray_Space_Telescope_logo.svg/1172px-Fermi_Gamma-ray_Space_Telescope_logo.svg.png
     keywords:
     - ams
@@ -822,13 +822,13 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: 1.3.0
-    created: "2021-08-04T15:45:01.313159793Z"
+    created: "2021-08-05T08:43:09.368898132Z"
     dependencies:
     - name: jupyterhub
       repository: https://jupyterhub.github.io/helm-chart/
       version: 0.11.1
     description: JHUBaaS Hub umbrella chart
-    digest: 9d8a5004665d99c1b346e275041beae57c4edd71c98a7d7630b41f563a12eb4f
+    digest: fe6ef1d3d7f3ebf890e7ff1797433835d7733859967ba03c3877156cdb7a39ca
     icon: https://jupyter.org/assets/hublogo.svg
     keywords:
     - jupyterhub
@@ -1212,9 +1212,9 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: "4.11"
-    created: "2021-08-04T15:45:01.316453131Z"
+    created: "2021-08-05T08:43:09.371487151Z"
     description: A Helm chart for the deployment of a XCache cluster
-    digest: 3e8515590cff0debc3db2f21ddee6a07d851b1ea81c49a1ae511d7aec0b4f164
+    digest: d7307aeae9a74d42fefba70d50da14313a507f08e603cf857ae3c8414ef72e61
     home: https://dodas-ts.github.io/helm_charts/stable/cachingondemand/
     icon: https://xrootd.slac.stanford.edu/images/xrootd-logo.png
     maintainers:
@@ -1245,6 +1245,28 @@ entries:
     - https://DODAS-TS.github.io/helm_charts/cachingondemand-1.0.5.tgz
     version: 1.0.5
   htcondor:
+  - annotations:
+      category: stable
+    apiVersion: v1
+    appVersion: 8.9.9
+    created: "2021-08-05T08:43:09.373775767Z"
+    dependencies:
+    - name: reloader
+      repository: https://stakater.github.io/stakater-charts
+      version: v0.0.95
+    description: A Helm chart for the deployment of HTCondor cluster
+    digest: 6ca0c91798702e4417f7608490e67fabddd73a49e58d8d75ac139baa47c97634
+    home: https://dodas-ts.github.io/helm_charts/stable/htcondor/
+    icon: https://research.cs.wisc.edu/htcondor/images/HTCondor_wiki_logo_small.png
+    maintainers:
+    - email: tommaso.tedeschi@pg.infn.it
+      name: ttedesch
+    - email: diego.ciangottini@pg.infn.it
+      name: dciangot
+    name: htcondor
+    urls:
+    - https://DODAS-TS.github.io/helm_charts/htcondor-2.1.7.tgz
+    version: 2.1.7
   - annotations:
       category: stable
     apiVersion: v1
@@ -1919,9 +1941,9 @@ entries:
       category: test
     apiVersion: v1
     appVersion: "1"
-    created: "2021-08-04T15:45:01.319876977Z"
+    created: "2021-08-05T08:43:09.37416487Z"
     description: A Helm chart for the deployment of multi-user JupyterHUB
-    digest: bd43438a9648e2044ffe003d1e4087e8e8502796091d92036bbb7a8535189d62
+    digest: f39af145ba7b18549e8a70d5cc2773f405ac1bcb6725b1cd48a01a91a5c61259
     home: https://dodas-ts.github.io/helm_charts/stable/jupyterhub/
     icon: https://xrootd.slac.stanford.edu/images/jupyterhub.png
     maintainers:
@@ -1938,14 +1960,14 @@ entries:
       category: stable
     apiVersion: v1
     appVersion: "1"
-    created: "2021-08-04T15:45:01.324670023Z"
+    created: "2021-08-05T08:43:09.378489002Z"
     dependencies:
     - name: minio-operator
       repository: https://operator.min.io/
       version: 4.0.10
     description: A Helm chart for the deployment of multi-oidc-user MINIO+OPA as a
       Service
-    digest: 9a6e49e43287f21f028a74e83bbaea621ba3afbbe91862cc76d63e884dc6680e
+    digest: 22c6e9c5642d4b7e52e5e83c4ca2b42b5fed1c046b361e596a0a6a86f4f3e84e
     home: https://dodas-ts.github.io/helm_charts/stable/minio/
     icon: https://min.io/resources/img/logo/MINIO_Bird.png
     maintainers:
@@ -2205,9 +2227,9 @@ entries:
       category: test
     apiVersion: v1
     appVersion: 1.5.1
-    created: "2021-08-04T15:45:01.325247565Z"
+    created: "2021-08-05T08:43:09.378929105Z"
     description: Fast and general-purpose cluster computing system.
-    digest: ac8a9e4abfebe268e5d611a479a874e4ff0222cfca7c410685560c8f8fec44f9
+    digest: 913b1a98d420c1427cc9158fe12ecbf78633483b1311465b616347498da317e8
     home: http://spark.apache.org
     icon: http://spark.apache.org/images/spark-logo-trademark.png
     maintainers:
@@ -2220,4 +2242,4 @@ entries:
     urls:
     - https://DODAS-TS.github.io/helm_charts/spark-2.4.5.tgz
     version: 2.4.5
-generated: "2021-08-04T15:45:01.293652486Z"
+generated: "2021-08-05T08:43:09.354171123Z"
