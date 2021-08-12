@@ -77,7 +77,7 @@ jupyterhub:
       WITH_GPU: "false"
       HTCONDOR_COLLECTOR_URL: <master public IP>.myip.cloud.infn.it:30618
       HTCONDOR_SCHEDD_NAME: <master public IP>.myip.cloud.infn.it:31618
-      IAM_TOKEN: null
+      IAM_TOKEN: ""
     extraConfig:
       myConfig.py: |
         #!/usr/bin/env python
