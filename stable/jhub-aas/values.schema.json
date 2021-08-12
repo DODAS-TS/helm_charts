@@ -53,6 +53,12 @@
                         "extraEnv": {
                             "type": "object",
                             "properties": {
+                                "IAM_TOKEN": {
+                                    "type": "string",
+                                    "form": true,
+                                    "title": "Insert you IAM access token",
+                                    "description": "Enable the cluster to instantiate a IAM Client for you"
+                                },
                                 "ADMIN_OAUTH_GROUPS": {
                                     "type": "string"
                                 },
