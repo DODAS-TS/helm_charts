@@ -7,7 +7,7 @@ iam:
 
 hub:
     host: localhost
-    image: dodasts/jupyter-hub:v3.0.1
+    image: dodasts/jhub:v0.0.6-jhub
 
 s3:
     endpoint: https://minio.cloud.infn.it/minio
