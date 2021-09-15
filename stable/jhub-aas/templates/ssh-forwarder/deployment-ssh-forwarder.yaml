@@ -2,14 +2,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: daskssh
+  name: ssh-fwd
   labels:
-    app.kubernetes.io/name: daskssh
+    app.kubernetes.io/name: ssh-fwd
 spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: daskssh 
+        app.kubernetes.io/name: ssh-fwd 
     spec:
       priorityClassName: system-node-critical
       containers:
@@ -24,7 +24,7 @@ spec:
         imagePullPolicy: {{ .Values.sshForwarder.redis.image.pullPolicy }}
         image: "{{ .Values.sshForwarder.redis.image.name }}:{{ .Values.sshForwarder.redis.image.tag }}"
         volumeMounts: []
-      - name: daskssh 
+      - name: ssh-fwd
         resources:
           requests:
             memory: {{ .Values.sshForwarder.sshFWD.requests.memory }}
@@ -47,7 +47,7 @@ spec:
       volumes:
   selector:
     matchLabels:
-      app.kubernetes.io/name: daskssh 
+      app.kubernetes.io/name: ssh-fwd 
   
 
   replicas: 1
