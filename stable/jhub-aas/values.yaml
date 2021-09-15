@@ -3,6 +3,44 @@ hostname: jhub.<PUT PUBLIC IP>.myip.cloud.infn.it
 ingress: true
 # Show options for htcondor integration
 htcondor: false
+
+ssh-forwarder:
+  enabled: false
+  redis:
+    image: 
+      pullPolicy: IfNotPresent
+      name: redis
+      tag: 6.2.5
+    requests: 
+      cpu: 900m
+      memory: 900M
+    limits:
+      cpu: 1
+      memory: 1G
+  listener:
+    image:
+      pullPolicy: Always 
+      name: dodasts/dask-ssh-listener 
+      tag: v0.1.1
+    requests: 
+      cpu: 900m
+      memory: 900M
+    limits:
+      cpu: 1
+      memory: 1G
+  daskssh:
+    image:
+      pullPolicy: Always
+      name: dodasts/dask-ssh-forwarder
+      tag: v0.1.1
+    nodePort: 31022
+    requests: 
+      cpu: 900m
+      memory: 900M
+    limits:
+      cpu: 1
+      memory: 1G
+
 # ====
 jupyterhub:
   ingress:
@@ -51,7 +89,7 @@ jupyterhub:
   hub:
     image:
       name: ghcr.io/dodas-ts/jhub
-      tag: 'v4.0.1'
+      tag: 'v4.0.2'
     cookieSecret: 72077073d819ce7a118a7dd7e2ce3eb74328cd306faa0540b1045d56113fdd0e
     #<PUT HERE A RANDOM TOKEN openssl rand -hex 32>
     networkPolicy:
@@ -117,14 +155,14 @@ jupyterhub:
             with open(cache_file) as f:
                 cache_results = json.load(f)
         else:
-            response = subprocess.check_output(['/srv/.init/dodas-IAMClientRec', server_host], env=myenv)
+            response = subprocess.check_output(['/srv/.init/dodas-IAMClientRec', server_host+"-jhub"], env=myenv)
             response_list = response.decode('utf-8').split("\n")
             client_id = response_list[len(response_list)-3]
             client_secret = response_list[len(response_list)-2]
 
             cache_results = {
-                "client_id": client_id,
-                "client_secret": client_secret
+                "client_id": server_host+"-jhub",
+                "client_secret": "testmepls"
             }
             with open(cache_file, "w") as w:
                 json.dump(cache_results, w)
