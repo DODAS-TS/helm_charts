@@ -1,3 +1,4 @@
+{{- if .Values.sshForwarder.enabled }}
 apiVersion: v1 
 kind: Service 
 metadata:
@@ -6,7 +7,7 @@ spec:
   type: NodePort 
   ports:
     - port: 8022 
-      nodePort: {{ .Values.ssh-forwarder.sshFWD.nodePort }}
+      nodePort: {{ .Values.sshForwarder.sshFWD.nodePort }}
       protocol: TCP
       name: daskssh 
   selector:
@@ -28,3 +29,4 @@ spec:
       name: listener 
   selector:
     app.kubernetes.io/name: daskssh
+{{- end }}

@@ -1,3 +1,4 @@
+{{- if .Values.sshForwarder.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,34 +16,34 @@ spec:
       - name: redis 
         resources:
           requests:
-            memory: {{ .Values.ssh-forwader.redis.requests.memory }}
-            cpu: {{ .Values.ssh-forwader.redis.requests.cpu }}
+            memory: {{ .Values.sshForwarder.redis.requests.memory }}
+            cpu: {{ .Values.sshForwarder.redis.requests.cpu }}
           limits:
-            memory: {{ .Values.ssh-forwader.redis.limits.memory }}
-            cpu: {{ .Values.ssh-forwader.redis.limits.cpu }}
-        imagePullPolicy: {{ .Values.ssh-forwader.redis.image.pullPolicy }}
-        image: "{{ .Values.ssh-forwader.redis.image.name }}:{{ .Values.ssh-forwader.redis.image.tag }}"
+            memory: {{ .Values.sshForwarder.redis.limits.memory }}
+            cpu: {{ .Values.sshForwarder.redis.limits.cpu }}
+        imagePullPolicy: {{ .Values.sshForwarder.redis.image.pullPolicy }}
+        image: "{{ .Values.sshForwarder.redis.image.name }}:{{ .Values.sshForwarder.redis.image.tag }}"
         volumeMounts: []
       - name: daskssh 
         resources:
           requests:
-            memory: {{ .Values.ssh-forwader.sshFWD.requests.memory }}
-            cpu: {{ .Values.ssh-forwader.sshFWD.requests.cpu }}
+            memory: {{ .Values.sshForwarder.sshFWD.requests.memory }}
+            cpu: {{ .Values.sshForwarder.sshFWD.requests.cpu }}
           limits:
-            memory: {{ .Values.ssh-forwader.sshFWD.limits.memory }}
-            cpu: {{ .Values.ssh-forwader.sshFWD.limits.cpu }}
-        imagePullPolicy: {{ .Values.ssh-forwader.sshFWD.image.pullPolicy }}
-        image: "{{ .Values.ssh-forwader.sshFWD.image.name }}:{{ .Values.ssh-forwader.sshFWD.image.tag | default .Chart.AppVersion }}"
+            memory: {{ .Values.sshForwarder.sshFWD.limits.memory }}
+            cpu: {{ .Values.sshForwarder.sshFWD.limits.cpu }}
+        imagePullPolicy: {{ .Values.sshForwarder.sshFWD.image.pullPolicy }}
+        image: "{{ .Values.sshForwarder.sshFWD.image.name }}:{{ .Values.sshForwarder.sshFWD.image.tag | default .Chart.AppVersion }}"
       - name: listener 
         resources:
           requests:
-            memory: {{ .Values.ssh-forwader.sshListener.requests.memory }}
-            cpu: {{ .Values.ssh-forwader.sshListener.requests.cpu }}
+            memory: {{ .Values.sshForwarder.sshListener.requests.memory }}
+            cpu: {{ .Values.sshForwarder.sshListener.requests.cpu }}
           limits:
-            memory: {{ .Values.ssh-forwader.sshListener.limits.memory }}
-            cpu: {{ .Values.ssh-forwader.sshListener.limits.cpu }}
-        imagePullPolicy: {{ .Values.ssh-forwader.sshListener.image.pullPolicy }}
-        image: "{{ .Values.ssh-forwader.sshListener.image.name }}:{{ .Values.ssh-forwader.sshListener.image.tag | default .Chart.AppVersion }}"
+            memory: {{ .Values.sshForwarder.sshListener.limits.memory }}
+            cpu: {{ .Values.sshForwarder.sshListener.limits.cpu }}
+        imagePullPolicy: {{ .Values.sshForwarder.sshListener.image.pullPolicy }}
+        image: "{{ .Values.sshForwarder.sshListener.image.name }}:{{ .Values.sshForwarder.sshListener.image.tag | default .Chart.AppVersion }}"
       volumes:
   selector:
     matchLabels:
@@ -52,3 +53,4 @@ spec:
   replicas: 1
   strategy:
     type: Recreate
+{{- end }}

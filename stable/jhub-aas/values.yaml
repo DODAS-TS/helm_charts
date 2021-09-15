@@ -4,7 +4,7 @@ ingress: true
 # Show options for htcondor integration
 htcondor: false
 
-ssh-forwarder:
+sshForwarder:
   enabled: false
   redis:
     image: 
