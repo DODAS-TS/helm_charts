@@ -17,7 +17,7 @@ ssh-forwarder:
     limits:
       cpu: 1
       memory: 1G
-  listener:
+  sshListener:
     image:
       pullPolicy: Always 
       name: dodasts/dask-ssh-listener 
@@ -28,7 +28,7 @@ ssh-forwarder:
     limits:
       cpu: 1
       memory: 1G
-  daskssh:
+  sshFWD:
     image:
       pullPolicy: Always
       name: dodasts/dask-ssh-forwarder
@@ -89,7 +89,7 @@ jupyterhub:
   hub:
     image:
       name: ghcr.io/dodas-ts/jhub
-      tag: 'v4.0.2'
+      tag: 'v4.0.27'
     cookieSecret: 72077073d819ce7a118a7dd7e2ce3eb74328cd306faa0540b1045d56113fdd0e
     #<PUT HERE A RANDOM TOKEN openssl rand -hex 32>
     networkPolicy:
@@ -116,6 +116,7 @@ jupyterhub:
       HTCONDOR_COLLECTOR_URL: <master public IP>.myip.cloud.infn.it:30618
       HTCONDOR_SCHEDD_NAME: <master public IP>.myip.cloud.infn.it:31618
       IAM_TOKEN: ""
+      SSH_NAMESPACE: default
     extraConfig:
       myConfig.py: |
         #!/usr/bin/env python
@@ -189,6 +190,7 @@ jupyterhub:
                 spawner.environment['REFRESH_TOKEN'] = auth_state['refresh_token']
                 spawner.environment['USERNAME'] = auth_state['oauth_user']['preferred_username']
                 spawner.environment['JUPYTERHUB_ACTIVITY_INTERVAL'] = "15"
+                spawner.environment['SSH_NAMESPACE'] = os.environ.get("SSH_NAMESPACE") 
 
                 amIAllowed = False
                 

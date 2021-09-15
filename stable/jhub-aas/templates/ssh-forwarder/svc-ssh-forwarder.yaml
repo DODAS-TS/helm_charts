@@ -1,12 +1,12 @@
 apiVersion: v1 
 kind: Service 
 metadata:
-  name: daskssh 
+  name: sshFWD 
 spec:
   type: NodePort 
   ports:
     - port: 8022 
-      nodePort: {{ .Values.daskssh.nodePort }}
+      nodePort: {{ .Values.ssh-forwarder.sshFWD.nodePort }}
       protocol: TCP
       name: daskssh 
   selector:
@@ -17,7 +17,7 @@ spec:
 apiVersion: v1 
 kind: Service 
 metadata:
-  name: listener 
+  name: sshListener 
 spec:
   type: ClusterIP 
   clusterIP: 

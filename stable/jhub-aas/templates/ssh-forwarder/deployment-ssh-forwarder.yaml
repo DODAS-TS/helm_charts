@@ -15,34 +15,34 @@ spec:
       - name: redis 
         resources:
           requests:
-            memory: {{ .Values.redis.requests.memory }}
-            cpu: {{ .Values.redis.requests.cpu }}
+            memory: {{ .Values.ssh-forwader.redis.requests.memory }}
+            cpu: {{ .Values.ssh-forwader.redis.requests.cpu }}
           limits:
-            memory: {{ .Values.redis.limits.memory }}
-            cpu: {{ .Values.redis.limits.cpu }}
-        imagePullPolicy: {{ .Values.redis.image.pullPolicy }}
-        image: "{{ .Values.redis.image.name }}:{{ .Values.redis.image.tag }}"
+            memory: {{ .Values.ssh-forwader.redis.limits.memory }}
+            cpu: {{ .Values.ssh-forwader.redis.limits.cpu }}
+        imagePullPolicy: {{ .Values.ssh-forwader.redis.image.pullPolicy }}
+        image: "{{ .Values.ssh-forwader.redis.image.name }}:{{ .Values.ssh-forwader.redis.image.tag }}"
         volumeMounts: []
       - name: daskssh 
         resources:
           requests:
-            memory: {{ .Values.daskssh.requests.memory }}
-            cpu: {{ .Values.daskssh.requests.cpu }}
+            memory: {{ .Values.ssh-forwader.sshFWD.requests.memory }}
+            cpu: {{ .Values.ssh-forwader.sshFWD.requests.cpu }}
           limits:
-            memory: {{ .Values.daskssh.limits.memory }}
-            cpu: {{ .Values.daskssh.limits.cpu }}
-        imagePullPolicy: {{ .Values.daskssh.image.pullPolicy }}
-        image: "{{ .Values.daskssh.image.name }}:{{ .Values.daskssh.image.tag | default .Chart.AppVersion }}"
+            memory: {{ .Values.ssh-forwader.sshFWD.limits.memory }}
+            cpu: {{ .Values.ssh-forwader.sshFWD.limits.cpu }}
+        imagePullPolicy: {{ .Values.ssh-forwader.sshFWD.image.pullPolicy }}
+        image: "{{ .Values.ssh-forwader.sshFWD.image.name }}:{{ .Values.ssh-forwader.sshFWD.image.tag | default .Chart.AppVersion }}"
       - name: listener 
         resources:
           requests:
-            memory: {{ .Values.listener.requests.memory }}
-            cpu: {{ .Values.listener.requests.cpu }}
+            memory: {{ .Values.ssh-forwader.sshListener.requests.memory }}
+            cpu: {{ .Values.ssh-forwader.sshListener.requests.cpu }}
           limits:
-            memory: {{ .Values.listener.limits.memory }}
-            cpu: {{ .Values.listener.limits.cpu }}
-        imagePullPolicy: {{ .Values.listener.image.pullPolicy }}
-        image: "{{ .Values.listener.image.name }}:{{ .Values.listener.image.tag }}"
+            memory: {{ .Values.ssh-forwader.sshListener.limits.memory }}
+            cpu: {{ .Values.ssh-forwader.sshListener.limits.cpu }}
+        imagePullPolicy: {{ .Values.ssh-forwader.sshListener.image.pullPolicy }}
+        image: "{{ .Values.ssh-forwader.sshListener.image.name }}:{{ .Values.ssh-forwader.sshListener.image.tag | default .Chart.AppVersion }}"
       volumes:
   selector:
     matchLabels:
