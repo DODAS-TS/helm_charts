@@ -17,14 +17,10 @@ RUN echo "jovyan ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
        rm /bin/sh && \
        ln -s /bin/bash /bin/sh
 
-RUN chown -R  $NB_UID /srv/jupyterhub /etc/jupyterhub
-
-USER $NB_UID
+RUN chown -R  $NB_UID /srv/jupyterhub &&  chown -R  $NB_UID /etc/jupyterhub
 
 RUN mkdir -p .init
 
 COPY --from=REGISTRATION /usr/local/bin/dodas-IAMClientRec /srv/.init/dodas-IAMClientRec
-
-USER root
 
 CMD ["/usr/bin/start.sh", "jupyterhub"]
