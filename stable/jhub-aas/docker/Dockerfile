@@ -25,5 +25,6 @@ RUN mkdir -p .init
 
 COPY --from=REGISTRATION /usr/local/bin/dodas-IAMClientRec /srv/.init/dodas-IAMClientRec
 
+USER root
 
 CMD ["/usr/bin/start.sh", "jupyterhub"]
