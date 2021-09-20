@@ -25,11 +25,11 @@ spec:
                 values:
                 - schedd
             topologyKey: kubernetes.io/hostname
-      containers:
       hostAliases:                                                                                                           
       - hostnames:                                                                                                           
         - {{ .Values.schedd.hostname }}
         ip: {{ .Values.master.publicIP }}
+      containers:
       - name: schedd
         resources:
           requests:
