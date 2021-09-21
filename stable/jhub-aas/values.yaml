@@ -123,7 +123,7 @@ jupyterhub:
       ADMIN_OAUTH_GROUPS: /admins
       WITH_GPU: "false"
       HTCONDOR_COLLECTOR_URL: <master public IP>.myip.cloud.infn.it:30618
-      HTCONDOR_SCHEDD_NAME: <master public IP>.myip.cloud.infn.it:31618
+      HTCONDOR_SCHEDD_NAME: <master public IP>.myip.cloud.infn.it
       ACCESS_TOKEN: ""
       SSH_NAMESPACE: default
     extraConfig:
