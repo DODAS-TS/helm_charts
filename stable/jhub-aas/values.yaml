@@ -98,7 +98,7 @@ jupyterhub:
   hub:
     image:
       name: ghcr.io/dodas-ts/jhub
-      tag: 'v5.0.1-pre12'
+      tag: 'v5.0.1-pre15'
     cookieSecret: 72077073d819ce7a118a7dd7e2ce3eb74328cd306faa0540b1045d56113fdd0e
     #<PUT HERE A RANDOM TOKEN openssl rand -hex 32>
     networkPolicy:
@@ -303,9 +303,9 @@ jupyterhub:
                 <label for="stack">Select your desired image:</label>
           <input list="images" name="img">
           <datalist id="images">
-            <option value="ghcr.io/dodas-ts/notebook:v5.0.1-pre12-base">Notebook base</option>
-            <option value="ghcr.io/dodas-ts/notebook:v5.0.1-pre12-htc">Notebook with HTCondor</option>
-            <option value="ghcr.io/dodas-ts/notebook:v5.0.1-pre12-htc-root">Notebook with HTCondor and ROOT</option>
+            <option value="ghcr.io/dodas-ts/notebook:v5.0.1-pre15-base">Notebook base</option>
+            <option value="ghcr.io/dodas-ts/notebook:v5.0.1-pre15-htc">Notebook with HTCondor</option>
+            <option value="ghcr.io/dodas-ts/notebook:v5.0.1-pre15-htc-root">Notebook with HTCondor and ROOT</option>
           </datalist>
         <br>
                 <label for="cpu">Select your desired number of cores:</label>
@@ -360,6 +360,7 @@ jupyterhub:
         c.KubeSpawner.environment = {
           "_condor_COLLECTOR_HOST": os.environ["HTCONDOR_COLLECTOR_URL"],
           "_condor_SCHEDD_HOST": os.environ["HTCONDOR_SCHEDD_NAME"],
+          "_condor_SCHEDD_NAME": os.environ["HTCONDOR_SCHEDD_NAME"],
           "_condor_AUTH_SSL_CLIENT_CAFILE": "/ca.crt",
           "_condor_SEC_DEFAULT_AUTHENTICATION_METHODS": "SCITOKENS",
           "_condor_SCITOKENS_FILE": "/tmp/token",

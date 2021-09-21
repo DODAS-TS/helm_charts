@@ -187,7 +187,7 @@
                         "extraEnv": {
                             "type": "object",
                             "properties": {
-                                "IAM_TOKEN": {
+                                "ACCESS_TOKEN": {
                                     "type": "string",
                                     "form": true,
                                     "title": "Insert you IAM access token",
