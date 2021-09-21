@@ -98,7 +98,7 @@ jupyterhub:
   hub:
     image:
       name: ghcr.io/dodas-ts/jhub
-      tag: 'v4.0.27'
+      tag: 'v5.0.1-pre12'
     cookieSecret: 72077073d819ce7a118a7dd7e2ce3eb74328cd306faa0540b1045d56113fdd0e
     #<PUT HERE A RANDOM TOKEN openssl rand -hex 32>
     networkPolicy:
@@ -124,7 +124,7 @@ jupyterhub:
       WITH_GPU: "false"
       HTCONDOR_COLLECTOR_URL: <master public IP>.myip.cloud.infn.it:30618
       HTCONDOR_SCHEDD_NAME: <master public IP>.myip.cloud.infn.it:31618
-      IAM_TOKEN: ""
+      ACCESS_TOKEN: ""
       SSH_NAMESPACE: default
     extraConfig:
       myConfig.py: |
@@ -303,9 +303,9 @@ jupyterhub:
                 <label for="stack">Select your desired image:</label>
           <input list="images" name="img">
           <datalist id="images">
-            <option value="ghcr.io/dodas-ts/notebook:v4.0.4-base">Notebook base</option>
-            <option value="ghcr.io/dodas-ts/notebook:v4.0.4-htc">Notebook with HTCondor</option>
-            <option value="ghcr.io/dodas-ts/notebook:v4.0.4-htc-root">Notebook with HTCondor and ROOT</option>
+            <option value="ghcr.io/dodas-ts/notebook:v5.0.1-pre12-base">Notebook base</option>
+            <option value="ghcr.io/dodas-ts/notebook:v5.0.1-pre12-htc">Notebook with HTCondor</option>
+            <option value="ghcr.io/dodas-ts/notebook:v5.0.1-pre12-htc-root">Notebook with HTCondor and ROOT</option>
           </datalist>
         <br>
                 <label for="cpu">Select your desired number of cores:</label>

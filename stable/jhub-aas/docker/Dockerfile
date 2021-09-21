@@ -1,4 +1,4 @@
-FROM ghcr.io/dodas-ts/dodas-iam-client-rec:v0.0.6-pre2 as REGISTRATION
+FROM ghcr.io/dodas-ts/dodas-iam-client-rec:v0.0.6-pre3 as REGISTRATION
 
 FROM jupyterhub/k8s-hub:0.11.1
 
