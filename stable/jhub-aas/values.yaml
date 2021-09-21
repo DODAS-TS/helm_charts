@@ -363,7 +363,7 @@ jupyterhub:
           "_condor_AUTH_SSL_CLIENT_CAFILE": "/ca.crt",
           "_condor_SEC_DEFAULT_AUTHENTICATION_METHODS": "SCITOKENS",
           "_condor_SCITOKENS_FILE": "/tmp/token",
-          "_condot_TOOL_DEBUG": "D_FULLDEBUG,D_SECURITY"
+          "_condor_TOOL_DEBUG": "D_FULLDEBUG,D_SECURITY"
         }
 
         c.KubeSpawner.extra_container_config = {
