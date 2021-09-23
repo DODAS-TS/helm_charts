@@ -2,8 +2,17 @@ ARG  NOTEBOOK_VERSION
 FROM ghcr.io/dodas-ts/notebook:${NOTEBOOK_VERSION}-htc
 USER root
 
-#RUN pip install 
-RUN pip install --user jupyterlab jupyterhub notebook
+# Install DASK jobqueue
+RUN pip install dask-remote-jobqueue==v0.4.8
+
+# Old approach
+# RUN python3 -m pip install dask-labextension "dask[dataframe]"
+# COPY labextension.yaml /usr/local/lib/python3.6/site-packages/dask_labextension/labextension.yaml
+RUN python -m pip install jupyter-packaging \
+    && git clone --branch custom_clusters https://github.com/DODAS-TS/dask-labextension.git \
+    && cd dask-labextension \
+    && python -m pip install .
+
 COPY ./jupyterhub-singleuser.sh /usr/local/bin/jupyterhub-singleuser.sh
 RUN chmod +x /usr/local/bin/jupyterhub-singleuser.sh
 WORKDIR /opt/workspace
