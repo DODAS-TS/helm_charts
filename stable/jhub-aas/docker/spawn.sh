@@ -17,4 +17,6 @@ while true; do oidc-token dodas --time 1200 > /tmp/token; sleep 600; done &
 if [[ -f "cvmfs/cms.dodas.infn.it/miniconda3/etc/profile.d/conda.sh" ]]; then
     source /cvmfs/cms.dodas.infn.it/miniconda3/etc/profile.d/conda.sh
     conda activate cms-dodas
+    /root/.local/lib/python3.9/site-packages/
+    export PYTHONPATH=/root/.local/lib/python3.9/site-packages/:$PYTHONPATH
 fi
