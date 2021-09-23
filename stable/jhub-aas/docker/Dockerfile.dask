@@ -2,6 +2,33 @@ ARG  NOTEBOOK_VERSION
 FROM ghcr.io/dodas-ts/notebook:${NOTEBOOK_VERSION}-htc
 USER root
 
+WORKDIR /usr/local/share
+
+# Install jupyterhub stuff
+RUN curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
+RUN yum update -y && \
+    yum install -y nodejs && \
+    yum clean all && \
+    rm -rf /var/cache/yum
+RUN npm install -g configurable-http-proxy
+
+# Dask and jupyterhub
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install --upgrade setuptools
+RUN python3 -m pip install dask \
+    dask_jobqueue \
+    click==7.1.2 \
+    numpy \
+    bokeh \
+    ipython \
+    jupyterhub \
+    jupyterlab \
+    notebook \
+    jupyter-server-proxy \
+    ipywidgets
+RUN python3 -m pip install "dask[dataframe]"
+RUN rm -r /root/.cache
+
 # Install DASK jobqueue
 RUN pip install dask-remote-jobqueue==v0.4.8
 
