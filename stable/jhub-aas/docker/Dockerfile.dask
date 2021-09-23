@@ -17,7 +17,6 @@ RUN python3 -m pip install dask \
     jupyter-server-proxy \
     ipywidgets
 RUN python3 -m pip install "dask[dataframe]"
-RUN rm -r /root/.cache
 
 # Install DASK jobqueue
 RUN pip install dask-remote-jobqueue==v0.4.8
