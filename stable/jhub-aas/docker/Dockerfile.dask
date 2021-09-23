@@ -30,6 +30,8 @@ RUN python -m pip install jupyter-packaging \
     && cd dask-labextension \
     && python -m pip install .
 
+RUN /root/.ipython
+
 COPY ./jupyterhub-singleuser.sh /usr/local/bin/jupyterhub-singleuser.sh
 RUN chmod +x /usr/local/bin/jupyterhub-singleuser.sh
 WORKDIR /opt/workspace
