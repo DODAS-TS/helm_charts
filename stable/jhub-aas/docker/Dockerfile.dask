@@ -3,7 +3,7 @@ FROM ghcr.io/dodas-ts/notebook:${NOTEBOOK_VERSION}-htc
 USER root
 
 #RUN pip install 
-
+RUN pip install --user jupyterlab jupyterhub notebook
 COPY ./jupyterhub-singleuser.sh /usr/local/bin/jupyterhub-singleuser.sh
 RUN chmod +x /usr/local/bin/jupyterhub-singleuser.sh
 WORKDIR /opt/workspace
