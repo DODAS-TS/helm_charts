@@ -31,7 +31,10 @@ RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 RUN DEBIAN_FRONTEND=noninteractive apt install -y nodejs
 
 WORKDIR /opt/workspace/dask-labextension
-RUN npm install -g npm@7.24.1 && npm install typescript -g && npm run build
+RUN npm install -g npm@7.24.1 && npm install typescript -g
+# && npm run build
+
+RUN jupyter labextension install . || npm run build
 
 RUN jupyter labextension install .
 
