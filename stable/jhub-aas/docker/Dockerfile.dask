@@ -27,6 +27,7 @@ RUN pip install dask-remote-jobqueue==v0.4.8
 RUN python -m pip install jupyter-packaging \
     && git clone --branch custom_clusters https://github.com/DODAS-TS/dask-labextension.git \
     && cd dask-labextension \
+    && npm run build \
     && jupyter labextension install .
 
 RUN mkdir -p /root/.ipython
