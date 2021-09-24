@@ -24,18 +24,17 @@ RUN pip install dask-remote-jobqueue==v0.4.8
 # Old approach
 # RUN python3 -m pip install dask-labextension "dask[dataframe]"
 # COPY labextension.yaml /usr/local/lib/python3.6/site-packages/dask_labextension/labextension.yaml
+RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+RUN DEBIAN_FRONTEND=noninteractive apt install -y nodejs
+RUN npm install npm@latest -g
+RUN npm install -g typescript yarn
+
 RUN python -m pip install jupyter-packaging \
     && git clone --branch custom_clusters https://github.com/DODAS-TS/dask-labextension.git
 
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
-RUN DEBIAN_FRONTEND=noninteractive apt install -y nodejs
-
 WORKDIR /opt/workspace/dask-labextension
-RUN npm install -g npm@7.24.1 && npm install typescript -g
-# && npm run build
-
-RUN jupyter labextension install . || npm run build
-
+RUN jlpm 
+RUN npm run build && npm install 
 RUN jupyter labextension install .
 
 RUN mkdir -p /root/.ipython
