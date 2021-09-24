@@ -19,7 +19,7 @@ RUN python3 -m pip install dask \
 RUN python3 -m pip install "dask[dataframe]"
 
 # Install DASK jobqueue
-RUN pip install dask-remote-jobqueue==v0.4.15.dev0
+RUN pip install dask-remote-jobqueue==0.4.18
 
 # Old approach
 # RUN python3 -m pip install dask-labextension "dask[dataframe]"
