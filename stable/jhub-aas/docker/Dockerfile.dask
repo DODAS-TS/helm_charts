@@ -43,6 +43,7 @@ RUN python3 -m pip install "dask[dataframe]"
 # Install DASK jobqueue
 RUN pip install dask-remote-jobqueue==0.4.19
 
+WORKDIR /opt/workspace
 # Old approach
 # RUN python3 -m pip install dask-labextension "dask[dataframe]"
 # COPY labextension.yaml /usr/local/lib/python3.6/site-packages/dask_labextension/labextension.yaml
