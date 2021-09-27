@@ -61,6 +61,8 @@ RUN jupyter labextension install .
 
 RUN mkdir -p /root/.ipython
 
+COPY labextension.yaml /opt/conda/lib/python3.9/site-packages/dask_labextension/labextension.yaml
+
 COPY ./jupyterhub-singleuser.sh /usr/local/bin/jupyterhub-singleuser.sh
 RUN chmod +x /usr/local/bin/jupyterhub-singleuser.sh
 WORKDIR /opt/workspace
