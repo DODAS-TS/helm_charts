@@ -11,6 +11,7 @@ RUN apt-get install -y dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev \
             libldap2-dev python-dev libxml2-dev libkrb5-dev \
             libgsl0-dev
 
+WORKDIR /usr/local/share/
 RUN mkdir root6build root6
 RUN git clone --branch distrdf-dask https://github.com/vepadulano/root.git root6source
 
