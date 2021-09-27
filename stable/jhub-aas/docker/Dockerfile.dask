@@ -2,6 +2,27 @@ ARG  NOTEBOOK_VERSION
 FROM ghcr.io/dodas-ts/notebook:${NOTEBOOK_VERSION}-htc
 USER root
 
+RUN apt-get install -y dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev \
+            libxft-dev libxext-dev python libssl-dev \
+            gfortran libpcre3-dev \
+            xlibmesa-glu-dev libglew1.5-dev libftgl-dev \
+            libmysqlclient-dev libfftw3-dev libcfitsio-dev \
+            graphviz-dev libavahi-compat-libdnssd-dev \
+            libldap2-dev python-dev libxml2-dev libkrb5-dev \
+            libgsl0-dev
+
+RUN mkdir root6build root6
+RUN git clone --branch distrdf-dask https://github.com/vepadulano/root.git root6source
+
+WORKDIR /usr/local/share/root6source
+
+WORKDIR /usr/local/share/root6build
+RUN cmake \
+        -DCMAKE_INSTALL_PREFIX=/usr/local/share/root6 \
+        -DPython3_EXECUTABLE=/usr/bin/python3 /usr/local/share/root6source
+
+RUN cmake --build . --target install -- -j4
+
 # Dask and jupyterhub
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install --upgrade setuptools
