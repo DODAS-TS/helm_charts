@@ -20,7 +20,8 @@ WORKDIR /usr/local/share/root6source
 WORKDIR /usr/local/share/root6build
 RUN cmake \
         -DCMAKE_INSTALL_PREFIX=/usr/local/share/root6 \
-        -DPython3_EXECUTABLE=/usr/bin/python3 /usr/local/share/root6source
+        -DPython3_EXECUTABLE=/opt/conda/bin/python \
+        /usr/local/share/root6source
 
 RUN cmake --build . --target install -- -j4
 
