@@ -42,5 +42,6 @@ RUN jupyter labextension install .
 RUN mkdir -p /root/.ipython
 
 COPY ./jupyterhub-singleuser.sh /usr/local/bin/jupyterhub-singleuser.sh
+COPY kernel.json /opt/conda/share/jupyter/kernels/python3/kernel.json
 RUN chmod +x /usr/local/bin/jupyterhub-singleuser.sh
 WORKDIR /opt/workspace
