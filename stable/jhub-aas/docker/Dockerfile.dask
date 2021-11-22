@@ -1,0 +1,70 @@
+ARG  NOTEBOOK_VERSION
+FROM ghcr.io/dodas-ts/notebook:${NOTEBOOK_VERSION}-htc
+USER root
+
+RUN apt-get install -y dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev \
+            libxft-dev libxext-dev python libssl-dev \
+            gfortran libpcre3-dev \
+            xlibmesa-glu-dev libglew1.5-dev libftgl-dev \
+            libmysqlclient-dev libfftw3-dev libcfitsio-dev \
+            graphviz-dev libavahi-compat-libdnssd-dev \
+            libldap2-dev python-dev libxml2-dev libkrb5-dev \
+            libgsl0-dev
+
+WORKDIR /usr/local/share/
+RUN mkdir root6build root6
+RUN git clone --branch distrdf-dask https://github.com/vepadulano/root.git root6source
+
+WORKDIR /usr/local/share/root6source
+
+WORKDIR /usr/local/share/root6build
+RUN cmake \
+        -DCMAKE_INSTALL_PREFIX=/usr/local/share/root6 \
+        -DPython3_EXECUTABLE=/opt/conda/bin/python \
+        /usr/local/share/root6source
+
+RUN cmake --build . --target install -- -j4
+
+# Dask and jupyterhub
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install --upgrade setuptools
+RUN python3 -m pip install dask \
+    dask_jobqueue \
+    click==7.1.2 \
+    numpy \
+    bokeh \
+    ipython \
+    jupyterhub \
+    jupyterlab \
+    notebook \
+    jupyter-server-proxy \
+    ipywidgets
+RUN python3 -m pip install "dask[dataframe]"
+
+# Install DASK jobqueue
+RUN pip install dask-remote-jobqueue==0.4.19
+
+WORKDIR /opt/workspace
+# Old approach
+# RUN python3 -m pip install dask-labextension "dask[dataframe]"
+# COPY labextension.yaml /usr/local/lib/python3.6/site-packages/dask_labextension/labextension.yaml
+RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+RUN DEBIAN_FRONTEND=noninteractive apt install -y nodejs
+RUN npm install npm@latest -g
+RUN npm install -g typescript yarn
+
+RUN python -m pip install jupyter-packaging \
+    && git clone --branch custom_clusters https://github.com/DODAS-TS/dask-labextension.git
+
+WORKDIR /opt/workspace/dask-labextension
+RUN jlpm 
+RUN npm run build && npm install 
+RUN jupyter labextension install .
+
+RUN mkdir -p /root/.ipython
+
+COPY labextension.yaml /opt/conda/lib/python3.9/site-packages/dask_labextension/labextension.yaml
+
+COPY ./jupyterhub-singleuser.sh /usr/local/bin/jupyterhub-singleuser.sh
+RUN chmod +x /usr/local/bin/jupyterhub-singleuser.sh
+WORKDIR /opt/workspace
