@@ -4,6 +4,9 @@
 
 iam:
     endpoint: https://iam.cloud.infn.it
+    groups: ""
+    admin_groups: ""
+    subject: ""
 
 hub:
     host: localhost
