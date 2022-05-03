@@ -26,6 +26,12 @@ spec:
               value: "https://jhub.{{ .Values.hub.host }}.myip.cloud.infn.it/hub/oauth_callback"
             - name: OAUTH_ENDPOINT
               value: "{{ .Values.iam.endpoint }}"
+            - name: OAUTH_GROUPS
+              value: "{{ .Values.iam.groups }}"
+            - name: ADMIN_OAUTH_GROUPS
+              value: "{{ .Values.iam.admin_groups }}"
+            - name: OAUTH_SUB
+              value: "{{ .Values.iam.subject }}"
             - name: S3_ENDPOINT
               value: "{{ .Values.s3.endpoint }}"
             - name: S3_BUCKET
