@@ -10,15 +10,17 @@ schedd:
   affinity: |
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: app.kubernetes.io/name
-            operator: In
-            values:
-            - schedd
-            - master
-            - wn
-        topologyKey: kubernetes.io/hostname  
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: app.kubernetes.io/name
+              operator: In
+              values:
+              - schedd
+              - master
+              - wn
+          topologyKey: kubernetes.io/hostname  
   mapfile: |
     SCITOKENS https:\/\/dodas-iam.cloud.cnaf.infn.it\/,(.*) \1@users.htcondor.org
     PASSWORD (*.) condor
@@ -47,15 +49,17 @@ master:
   affinity: |
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: app.kubernetes.io/name
-            operator: In
-            values:
-            - schedd
-            - master
-            - wn
-        topologyKey: kubernetes.io/hostname
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: app.kubernetes.io/name
+              operator: In
+              values:
+              - schedd
+              - master
+              - wn
+          topologyKey: kubernetes.io/hostname
   publicIP: <master public IP>
   extraconfig: ""
   hostname: <master public IP>.myip.cloud.infn.it
@@ -76,23 +80,16 @@ wn:
   affinity: |
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: app.kubernetes.io/name
-            operator: In
-            values:
-            - schedd
-            - master
-        topologyKey: kubernetes.io/hostname
-    podAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: app.kubernetes.io/name
-            operator: In
-            values:
-            - cvmfs
-        topologyKey: kubernetes.io/hostname
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: app.kubernetes.io/name
+              operator: In
+              values:
+              - schedd
+              - master
+          topologyKey: kubernetes.io/hostname
   replicas: 1
   image:
     name:  ttedesch/htcondor-execute

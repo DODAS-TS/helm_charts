@@ -21,15 +21,17 @@ spec:
         {{- if or .Values.cvmfs.enabled .Values.nfs.enabled }}
         podAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app.kubernetes.io/name
-                operator: In
-                values:
-                {{- if .Values.cvmfs.enabled }}
-                - cvmfs
-                {{- end }}
-            topologyKey: kubernetes.io/hostname
+          - weight: 1
+            podAffinityTerm:
+              labelSelector:
+                  matchExpressions:
+                  - key: app.kubernetes.io/name
+                    operator: In
+                    values:
+                    {{- if .Values.cvmfs.enabled }}
+                    - cvmfs
+                    {{- end }}
+                topologyKey: kubernetes.io/hostname
         {{- end }}
       {{- if .Values.ttsCache.enabled }}
       serviceAccountName: tts-account

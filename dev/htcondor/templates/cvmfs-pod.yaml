@@ -44,13 +44,15 @@ spec:
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app.kubernetes.io/name
-                operator: In
-                values:
-                - cvmfs
-            topologyKey: kubernetes.io/hostname
+          - weight: 1
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                  - cvmfs
+              topologyKey: kubernetes.io/hostname
 {{- if .Values.htcWn.nodeSelector }}
 {{ .Values.htcWn.nodeSelector | indent 8 }}
 {{- end }}

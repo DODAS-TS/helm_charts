@@ -14,13 +14,15 @@ spec:
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app.kubernetes.io/name
-                operator: In
-                values:
-                - squid
-            topologyKey: kubernetes.io/hostname
+          - weight: 1
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                  - squid
+              topologyKey: kubernetes.io/hostname
       dnsPolicy: None
       dnsConfig:
         nameservers:

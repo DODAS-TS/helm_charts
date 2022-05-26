@@ -16,15 +16,6 @@ spec:
 {{- if .Values.htcMaster.nodeSelector }}
 {{ .Values.htcMaster.nodeSelector | indent 8 }}
 {{- end }}
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app.kubernetes.io/name
-                operator: In
-                values:
-                - htc-master 
-            topologyKey: kubernetes.io/hostname 
       hostNetwork: true
       {{- if .Values.ttsCache.enabled }}
       serviceAccountName: tts-account
