@@ -25,6 +25,9 @@ spec:
         image: "{{ .Values.sshForwarder.redis.image.name }}:{{ .Values.sshForwarder.redis.image.tag }}"
         volumeMounts: []
       - name: ssh-fwd
+        env:
+        - name: JHUB_URL
+          value: {{ .Values.sshForwarder.jhubURL }}
         resources:
           requests:
             memory: {{ .Values.sshForwarder.sshFWD.requests.memory }}
@@ -35,6 +38,9 @@ spec:
         imagePullPolicy: {{ .Values.sshForwarder.sshFWD.image.pullPolicy }}
         image: "{{ .Values.sshForwarder.sshFWD.image.name }}:{{ .Values.sshForwarder.sshFWD.image.tag | default .Chart.AppVersion }}"
       - name: listener 
+        env:
+        - name: JHUB_URL
+          value: {{ .Values.sshForwarder.jhubURL }}
         resources:
           requests:
             memory: {{ .Values.sshForwarder.sshListener.requests.memory }}

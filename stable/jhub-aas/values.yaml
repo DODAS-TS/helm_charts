@@ -5,6 +5,7 @@ ingress: true
 htcondor: false
 
 sshForwarder:
+  jhubURL: http://DUMMY.ME
   enabled: false
   redis:
     image: 
