@@ -10,10 +10,10 @@ iam:
 
 hub:
     host: localhost
-    image: dodasts/jhub:v0.0.15-jhub
+    image: harbor.cloud.infn.it/datacloud-templates/jhub:CLOUD-2252
 
 s3:
-    endpoint: https://minio.cloud.infn.it/minio
+    endpoint: https://rgw.cloud.infn.it/
     bucket: mybucket
     
 cert:   
